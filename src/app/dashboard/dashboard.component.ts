@@ -45,10 +45,10 @@ export class DashboardComponent implements AfterViewInit {
     }
 
     newAssignatura(){
-        this.router.navigate(['/novaAssignatura']);
+        this.router.navigate(['/novaAssignatura/']);
     }
     
     infoAssignatura(id:number){
-        this.router.navigate(['/infoAssignatura']);
+        this.router.navigate(['/infoAssignatura/' + id]);
     }
 }

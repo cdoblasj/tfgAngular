@@ -14,11 +14,15 @@ export class AssignaturesService {
 
 
     delete(id: number) {
-        return this.http.delete(`${environment.apiUrl}/assignatura/${id}`);
+        return this.http.delete(`${environment.apiUrl}/assignatures/${id}`);
+    }
+
+    get(id: number) {
+        return this.http.get(`${environment.apiUrl}/assignatures/${id}`);
     }
 
 
     addNewAssignatura(assignatura:Assignatura){
-        return this.http.post(`${environment.apiUrl}/assignatures/new`,assignatura);
+        return this.http.post(`${environment.apiUrl}/assignatures/add`,assignatura);
     }
 }

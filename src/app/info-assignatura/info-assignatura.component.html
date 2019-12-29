@@ -1,45 +1,48 @@
-<div class="fxLayout wrap">
+<div *ngIf = "assignatura" class="fxLayout wrap">
     <div fxFlex.gt-lg="66" fxFlex.gt-md="66" fxFlex.gt-xs="100" fxFlex="100" >
         
-        <h2>Alemany</h2>
-        <h3>Codi 5757</h3>
-        <div fxLayout="row wrap">
-            <div fxFlex.gt-lg="33" fxFlex.gt-md="33"  fxFlex.gt-xs="100" fxFlex="100" >
-                <p>Activitat 1</p>
+        <h2>{{assignatura.nom}}</h2>
+        <h3>Codi {{assignatura.codi}} any {{assignatura.any}}</h3>
+        <div class="button-row">
+            <button [disabled]="loading" class="btn btn-success" (click) = "novaActivitat()">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Crear
+            </button>
+            <button style= "padding-left: 10px;"(click) = "cancelar()" class="btn btn-danger">
+                Ordenar
+            </button>
+        </div>
+
+        
+        <div fxLayout="row wrap" style="padding-top: 10px; font-weight: bold;">
+            <div fxFlex.gt-lg="33" fxFlex.gt-md="33"  fxFlex.gt-xs="33" fxFlex="33" >
+                <p>Nom</p>
             </div>
-            <div fxFlex.gt-lg="33" fxFlex.gt-md="33"  fxFlex.gt-xs="100" fxFlex="100" >
-                <p>10/12/2019</p>
+            <div fxFlex.gt-lg="33" fxFlex.gt-md="33"  fxFlex.gt-xs="33" fxFlex="33" >
+                <p>Data</p>
             </div>
 
-            <div fxFlex.gt-lg="33" fxFlex.gt-md="33"  fxFlex.gt-xs="100" fxFlex="100" >
-                <i class="material-icons">delete</i>
+            
+            
+        </div>
+        
+        <div *ngFor="let activitat of activitats"  fxLayout="row wrap" style="padding-top: 10px;">
+            <div fxFlex.gt-lg="33" fxFlex.gt-md="33"  fxFlex.gt-xs="33" fxFlex="33" >
+                <p>{{activitat.nom}}</p>
+            </div>
+            <div fxFlex.gt-lg="33" fxFlex.gt-md="33"  fxFlex.gt-xs="33" fxFlex="33" >
+                <p>{{activitat.data}}</p>
+            </div>
+
+            <div fxFlex.gt-lg="33" fxFlex.gt-md="33"  fxFlex.gt-xs="33" fxFlex="33" >
+                <button [disabled]="loading" class="btn btn-danger" (click)="borrarActivitat(activitat.id)">
+                    <i  class="material-icons">delete</i>
+                </button>
+                
             </div>
             
         </div>
-        <div fxLayout="row wrap">
-            <div fxFlex.gt-lg="33" fxFlex.gt-md="33"  fxFlex.gt-xs="100" fxFlex="100" >
-                <p>Activitat 2</p>
-            </div>
-            <div fxFlex.gt-lg="33" fxFlex.gt-md="33"  fxFlex.gt-xs="100" fxFlex="100" >
-                <p>3/12/2019</p>
-            </div>
-            <div fxFlex.gt-lg="33" fxFlex.gt-md="33"  fxFlex.gt-xs="100" fxFlex="100" >
-                <i class="material-icons">delete</i>
-            </div>
-            
-        </div>
-        <div fxLayout="row wrap">
-            <div fxFlex.gt-lg="33" fxFlex.gt-md="33"  fxFlex.gt-xs="100" fxFlex="100" >
-                <p>Activitat 3</p>
-            </div>
-            <div fxFlex.gt-lg="33" fxFlex.gt-md="33"  fxFlex.gt-xs="100" fxFlex="100" >
-                <p>2/12/2019</p>
-            </div>
-            <div fxFlex.gt-lg="33" fxFlex.gt-md="33"  fxFlex.gt-xs="100" fxFlex="100" >
-                <i class="material-icons">delete</i>
-            </div>
-            
-        </div>
+        
 
     </div>
 </div>

@@ -51,7 +51,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             .pipe(dematerialize());
 
         function handleRoute() {
-            
+
             switch (true) {
                 case url.endsWith('/users/authenticate') && method === 'POST':
                     return authenticate();
@@ -66,7 +66,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 case url.match(/\/users\/\d+$/) && method === 'DELETE':
                     return deleteUser();
                 default:
-                    // pass through any requests not handled above
+                    //pass through any requests not handled above
                     return next.handle(request);
             }    
         }

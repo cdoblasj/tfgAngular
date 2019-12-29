@@ -53,9 +53,7 @@ const MENUITEMS = [
 ];*/
 
 const MENUITEMS = [
-  { state: 'dashboard', name: 'Assignatures', type: 'link', icon: 'class' },
-  { state: 'infoActivity', name: 'Activitats', type: 'link', icon: 'class' }
- 
+  { state: 'dashboard', name: 'Assignatures', type: 'link', icon: 'class' }
 ];
 
 @Injectable()

@@ -28,6 +28,7 @@ import { AlertComponent } from './_components';
 import { NovaAssignaturaComponent } from './nova-assignatura/nova-assignatura.component';
 import { InfoAssignaturaComponent } from './info-assignatura/info-assignatura.component';
 import { ActivitatsComponent } from './activitats/activitats.component';
+import { NovaActivitatComponent } from './nova-activitat/nova-activitat.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ActivitatsComponent } from './activitats/activitats.component';
     AlertComponent,
     NovaAssignaturaComponent,
     InfoAssignaturaComponent,
-    ActivitatsComponent
+    ActivitatsComponent,
+    NovaActivitatComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,7 @@ import { ActivitatsComponent } from './activitats/activitats.component';
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
     // provider used to create fake backend
-    fakeBackendProvider
+    //fakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })

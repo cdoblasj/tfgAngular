@@ -6,6 +6,7 @@ import { LoginComponent } from './login';
 import { AuthGuard } from './_helpers';
 import { NovaAssignaturaComponent } from './nova-assignatura/nova-assignatura.component';
 import { InfoAssignaturaComponent } from './info-assignatura/info-assignatura.component';
+import { NovaActivitatComponent } from './nova-activitat/nova-activitat.component';
 /*
 export const AppRoutes: Routes = [
   {
@@ -51,7 +52,8 @@ export const AppRoutes: Routes = [
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
       },
       { path: 'novaAssignatura', component: NovaAssignaturaComponent },
-      { path: 'infoAssignatura', component: InfoAssignaturaComponent }
+      { path: 'infoAssignatura/:id', component: InfoAssignaturaComponent },
+      { path: 'novaActivitat/:id', component: NovaActivitatComponent }
     ]
   },
   { path: 'login', component: LoginComponent },
