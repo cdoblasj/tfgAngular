@@ -1,6 +1,6 @@
 ﻿const express = require('express');
 const router = express.Router();
-const activitatService = require('./activitats.service');
+const activitatService = require('./alumnes.service');
 const authorize = require('_helpers/authorize')
 const Role = require('_helpers/role');
 const multipart = require('connect-multiparty');

@@ -17,6 +17,8 @@ app.use(cors());
 app.use('/users', require('./users/users.controller'));
 app.use('/assignatures', require('./assignatures/assignatures.controller'));
 app.use('/activitats', require('./activitats/activitats.controller'));
+app.use('/alumnes', require('./alumnes/alumnes.controller'));
+
 app.post('/api/upload', multipartMiddleware, (req, res) => {
              
     res.json({

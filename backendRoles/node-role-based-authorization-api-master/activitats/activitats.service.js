@@ -7,17 +7,14 @@ var activitats = [
     { id: 2, id_assignatura: 1, nom: 'examen2', data: '2015-03-26',fileName: ''},
     { id: 3, id_assignatura: 2, nom: 'examen2', data: '2015-03-26', fileName: ''}
 ];
-/*
-id: number;
-    codi: string;
-    nom: string;
-    any:string;*/
+
 
 module.exports = {
     getAll,
     getById,
     getAllByIdAssignatura,
-    add
+    add,
+    eliminar
 };
 
 async function getAll() {
@@ -46,4 +43,9 @@ async function add(body) {
     if (!activitat) return;
     activitats.push(activitat);
     return activitat;
+}
+
+async function eliminar(id) {
+    activitats  = activitats.filter(u =>u.id !== parseInt(id));
+    return activitats;
 }

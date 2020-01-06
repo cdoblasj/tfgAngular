@@ -29,6 +29,9 @@ import { NovaAssignaturaComponent } from './nova-assignatura/nova-assignatura.co
 import { InfoAssignaturaComponent } from './info-assignatura/info-assignatura.component';
 import { ActivitatsComponent } from './activitats/activitats.component';
 import { NovaActivitatComponent } from './nova-activitat/nova-activitat.component';
+import { AdministrarEstudiantsComponent } from './administrar-estudiants/administrar-estudiants.component';
+import { AlumnesCsvComponent } from './alumnes-csv/alumnes-csv.component';
+import { NouAlumneComponent } from './nou-alumne/nou-alumne.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { NovaActivitatComponent } from './nova-activitat/nova-activitat.componen
     NovaAssignaturaComponent,
     InfoAssignaturaComponent,
     ActivitatsComponent,
-    NovaActivitatComponent
+    NovaActivitatComponent,
+    AdministrarEstudiantsComponent,
+    AlumnesCsvComponent,
+    NouAlumneComponent
   ],
   imports: [
     BrowserModule,

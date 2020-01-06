@@ -4,6 +4,7 @@ import { AssignaturesService } from '../_services/assignatures.service';
 import { Assignatura } from '../_models/assignatura';
 import { first } from 'rxjs/operators';
 import { ActivitatsService } from '../_services/activitats.service';
+import { AdministrarEstudiantsComponent } from '../administrar-estudiants/administrar-estudiants.component';
 
 @Component({
   selector: 'app-info-assignatura',
@@ -48,15 +49,20 @@ export class InfoAssignaturaComponent implements OnInit {
   {
     const id = this.route.snapshot.paramMap.get('id');  
     this.router.navigate(['/novaActivitat/' + id]);
-      
+  }
+  
+  administrarEstudiants()
+  {
+    const id = this.route.snapshot.paramMap.get('id');  
+    this.router.navigate(['/administrarEstudiants/' + id]);
   }
 
   borrarActivitat(id:number){
-    this.activitats = this.activitats.filter(u => u.id !== id);
     this.activitatService.delete(id)
         .pipe(first())
         .subscribe(activitats => {
-          this.activitats = this.activitats.filter(u => u.id !== id);
+          //this.activitats = this.activitats.filter(u => u.id !== id);
+          this.getActivitatsAssignatura();
         });
 
   }

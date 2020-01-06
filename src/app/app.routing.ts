@@ -7,6 +7,9 @@ import { AuthGuard } from './_helpers';
 import { NovaAssignaturaComponent } from './nova-assignatura/nova-assignatura.component';
 import { InfoAssignaturaComponent } from './info-assignatura/info-assignatura.component';
 import { NovaActivitatComponent } from './nova-activitat/nova-activitat.component';
+import { AdministrarEstudiantsComponent } from './administrar-estudiants/administrar-estudiants.component';
+import { AlumnesCsvComponent } from './alumnes-csv/alumnes-csv.component';
+import { NouAlumneComponent } from './nou-alumne/nou-alumne.component';
 /*
 export const AppRoutes: Routes = [
   {
@@ -53,7 +56,10 @@ export const AppRoutes: Routes = [
       },
       { path: 'novaAssignatura', component: NovaAssignaturaComponent },
       { path: 'infoAssignatura/:id', component: InfoAssignaturaComponent },
-      { path: 'novaActivitat/:id', component: NovaActivitatComponent }
+      { path: 'novaActivitat/:id', component: NovaActivitatComponent },
+      { path: 'administrarEstudiants/:id', component: AdministrarEstudiantsComponent },
+      { path: 'administrarEstudiantsCsv/:id', component: AlumnesCsvComponent },
+      { path: 'nouAlumne/:id', component: NouAlumneComponent }
     ]
   },
   { path: 'login', component: LoginComponent },

@@ -1,0 +1,20 @@
+<div  class="fxLayout wrap">
+    <div style = "padding-top: 10px;" fxFlex.gt-lg="66" fxFlex.gt-md="66" fxFlex.gt-xs="100" fxFlex="100" >
+        <h2>Com vols afegir estudiants?</h2>
+        <div class="button-row" style="padding-top:40px;padding-left:100px;">
+            <button  class="btn btn-lg btn-success" (click) = "nouAlumne()">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                ÚNIC  <i  class="material-icons">account_box</i>
+            </button>
+            <button (click) = "administrarEstudiantsCsv()" class="btn btn-lg btn-warning">
+                CSV  <i  class="material-icons">file_copy</i>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="button-row" style="padding-top:40px;padding-left:200px;">
+    <button (click) = "cancelar()" class="btn btn-danger">
+        Cancelar
+    </button>
+</div>
+
