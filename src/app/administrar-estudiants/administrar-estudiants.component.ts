@@ -13,6 +13,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Activitat } from '../_models/activitat';
 import { ActivitatsService } from '../_services/activitats.service';
+import { AlumnesService } from '../_services/alumnes.service';
 
 
 @Component({
@@ -25,9 +26,8 @@ export class AdministrarEstudiantsComponent implements OnInit {
     loading = false;
     submitted = false;
     returnUrl: string;
-    uploadedFiles: Array < File > ;
-    uploadedFileName = "";
-    uploadedFilePath = "";
+    public alumnes = [];
+    assignatura;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -35,7 +35,7 @@ export class AdministrarEstudiantsComponent implements OnInit {
         private router: Router,
         private authenticationService: AuthenticationService,
         private assignaturesService: AssignaturesService,
-        private activitatsService: ActivitatsService,
+        private alumnesService: AlumnesService,
         private alertService: AlertService,
         private http: HttpClient
     ) {
@@ -43,11 +43,20 @@ export class AdministrarEstudiantsComponent implements OnInit {
     }
 
     ngOnInit() {
+      
+      this.getAlumnesAssignatura();
+      this.getAssignatura();
 
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
+    private getAssignatura() {
+      var id = +this.route.snapshot.paramMap.get('id');
+      this.assignaturesService.get(id)
+          .pipe(first())
+          .subscribe(assignatura => this.assignatura = assignatura);
+    }
 
     cancelar()
     {
@@ -70,6 +79,29 @@ export class AdministrarEstudiantsComponent implements OnInit {
           this.router.navigate(['/nouAlumne/' + id]);
 
     }
+
+  
+    
+  
+    private getAlumnesAssignatura() {
+      var idAssignatura = +this.route.snapshot.paramMap.get('id');
+      this.alumnesService.getAllByIdAssignatura(idAssignatura)
+          .pipe(first())
+          .subscribe(alumnes => {
+            this.alumnes = alumnes
+          });
+    }
+  
+    borrarAlumne(id:number){
+      this.alumnesService.delete(id)
+          .pipe(first())
+          .subscribe(alumnes => {
+            //this.activitats = this.activitats.filter(u => u.id !== id);
+            this.getAlumnesAssignatura();
+          });
+  
+    }
+  
 
 
     

@@ -14,6 +14,8 @@ import { AdministrarEstudiantsComponent } from '../administrar-estudiants/admini
 export class InfoAssignaturaComponent implements OnInit {
   public assignatura;
   public activitats = [];
+  
+  returnUrl: string;
 
   constructor( public router: Router, public route: ActivatedRoute, public assignaturaService: AssignaturesService, public activitatService: ActivitatsService) 
   { 
@@ -27,6 +29,8 @@ export class InfoAssignaturaComponent implements OnInit {
   ngOnInit() {
     this.getAssignatura();
     this.getActivitatsAssignatura();
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   private getAssignatura() {

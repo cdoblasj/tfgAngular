@@ -9,6 +9,7 @@ const multipartMiddleware = multipart({
     uploadDir: './uploads'
 });
 
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
@@ -27,7 +28,6 @@ app.post('/api/upload', multipartMiddleware, (req, res) => {
 });
 // global error handler
 app.use(errorHandler);
-
 
 // start server
 const port = process.env.NODE_ENV === 'production' ? 80 : 4000;

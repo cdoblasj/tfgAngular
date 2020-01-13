@@ -1,13 +1,83 @@
-<div class="col-md-3">
+<div class="col-md-4">
+  <h2>Crear Alumnes amb CSV</h2>
+  <h3>Codi Assignatura {{assignatura.codi}} any {{assignatura.any}}</h3>
+    <div class="row" style="padding-top: 20px;">
+      
+      <input class="form-control" type='file' (change)='convertFile(input)' id='fileInput' #input aria-describedby="inputGroupFileAddon01">
+      <label for="fileInput">Afegeix un fitxer CSV</label>
+    </div>
+    <div *ngIf="submitted && !uploadedFileName">
+      <div style="color: red;">Afegeix un fitxer abans de guardar</div>
+  </div>
+  
     <div class="row">
-      <input class="form-control" type='file' (change)='convertFile(input)' id='fileInput' #input>
+      <label *ngIf = "!uploadedFileName" for="btnUpload">  </label>
+      <label *ngIf = "uploadedFileName" for="btnUpload">{{uploadedFileName}}</label>
     </div>
   
-    <div class="row" >
-      <b>CSV Data</b>  : <br> {{  text || "upload CSV" }}
-    </div>
-  
-    <div class="row">
+    
+</div>
+<div  class="fxLayout wrap">
+<div  fxFlex.gt-lg="66" fxFlex.gt-md="66" fxFlex.gt-xs="100" fxFlex="100" >
+  <div class="button-row" style="padding-top:10px;">
+      <button  class="btn btn-warning" (click) = "guardarAlumnes()">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+         Guardar 
+      </button>
+      
+  </div>
+</div>
+</div>
+
+
+<!--
+  <div class="row">
+      <label *ngIf = "uploadedFileName" for="btnUpload">{{uploadedFileName}}</label>
       <b>Converted JSON</b> : <br> {{ JSONData || "upload CSV to conver"  }}
     </div>
+<form action="/api/upload" method="post" enctype="multipart/form-data">
+  <div class="form-group">
+  <input (change)="fileChange($event)" type="file"  id="file" aria-describedby="inputGroupFileAddon01">
+  <label for="file">Afegeix un fitxer</label>
 </div>
+<div *ngIf="submitted && !uploadedFiles">
+  <div style="color: red;">Selecciona un fitxer abans de crear l'activitat</div>
+</div>
+<label *ngIf = "uploadedFileName" for="btnUpload">{{uploadedFileName}}</label>
+</form>-->
+
+
+
+
+<div  class="fxLayout wrap">
+  <div  fxFlex.gt-lg="66" fxFlex.gt-md="66" fxFlex.gt-xs="100" fxFlex="100" >
+     
+      
+      
+  </div>
+</div>
+<div fxLayout="row wrap" style="padding-top: 10px; font-weight: bold;">
+  <div fxFlex.gt-lg="33" fxFlex.gt-md="33"  fxFlex.gt-xs="33" fxFlex="33" >
+      <p>Nom</p>
+  </div>
+  <div fxFlex.gt-lg="33" fxFlex.gt-md="33"  fxFlex.gt-xs="33" fxFlex="33" >
+      <p>NIU</p>
+  </div>
+
+  
+  
+</div>
+
+<div *ngFor="let alumne of alumnes"  fxLayout="row wrap" style="padding-top: 10px;">
+  <div fxFlex.gt-lg="33" fxFlex.gt-md="33"  fxFlex.gt-xs="33" fxFlex="33" >
+      <p>{{alumne.nom}}  {{alumne.cognom}}</p>
+  </div>
+  <div fxFlex.gt-lg="33" fxFlex.gt-md="33"  fxFlex.gt-xs="33" fxFlex="33" >
+      <p>{{alumne.niu}}</p>
+  </div>
+
+  
+  
+</div>
+
+

@@ -13,7 +13,7 @@ router.get('/:id', authorize(), getById);
 router.post('/add', authorize(), add); 
 router.get('/byAssignatura/:idAssignatura', authorize(), getAllByIdAssignatura);
 router.delete('/:id', authorize(), eliminar);     // all authenticated users
-
+const { Alumne, Professor,Assignatura,Any,AnyAcademic,User,Pd} = require('../sequelize')
 
 module.exports = router;
 
@@ -54,10 +54,22 @@ function add(req, res, next) {
     if (id !== currentUser.sub && currentUser.role !== Role.Admin) {
         return res.status(401).json({ message: 'Unauthorized' });
     }
-
-    activitatService.add(req.body)
+    /*
+    req.body =  { nia: 1338429,nom: 'carlos', cognoms: 'doblas jodar' };
+    console.log(Alumne)
+    Alumne.create(req.body)
         .then(user => user ? res.json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
         .catch(err => next(err));
+    */
+
+   req.body =  { idAssignatura: 3, idAny: 2, idProfessor: 1,rol: 'admin'};
+   console.log(Alumne)
+   Pd.create(req.body)
+       .then(user => user ? res.json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
+       .catch(err => next(err));
+    /*activitatService.add(req.body)
+        .then(user => user ? res.json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
+        .catch(err => next(err));*/
 }
 
 

@@ -6,8 +6,8 @@ const jwt = require('jsonwebtoken');
 const Role = require('_helpers/role');
 
 var alumnes = [
-    { id: 1, id_assignatura: 1, any_assignatura: '2019', nom: 'carlos', cognoms: 'doblas jodar', notaFinal: '10', niu: '1338429'},
-    { id: 2, id_assignatura: 1, any_assignatura: '2019', nom: 'carlos2', cognoms: 'doblas jodar2', notaFinal: '9', niu: '1336969'}
+    { id: 1, id_assignatura: 1, any_assignatura: '2019', nom: 'carlos', cognoms: 'doblas jodar', notaFinal: '10', codi: '1338429'},
+    { id: 2, id_assignatura: 1, any_assignatura: '2019', nom: 'carlos2', cognoms: 'doblas jodar2', notaFinal: '9', codi: '1336969'}
 ];
 /*
     id: number;

@@ -6,7 +6,7 @@ export class Alumne {
     nom: string;
     cognoms: string;
     notaFinal: number;
-    codi:string;
+    niu:string;
 
     constructor(id_assignatura:number,any_assignatura:string, nom:string, cognoms:string, codi: string)
     {
@@ -14,6 +14,6 @@ export class Alumne {
         this.nom = nom;
         this.cognoms = cognoms;
         this.any_assignatura = any_assignatura;
-        this.codi = codi;
+        this.niu = codi;
     }
 }
