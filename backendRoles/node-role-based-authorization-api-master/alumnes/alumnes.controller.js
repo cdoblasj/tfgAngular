@@ -62,7 +62,7 @@ function add(req, res, next) {
         .catch(err => next(err));
     */
 
-   req.body =  { idAssignatura: 3, idAny: 2, idProfessor: 1,rol: 'admin'};
+   req.body =  { idAssignatura: 3, idAny: 1, idProfessor: 2,rol: 'admin'};
    console.log(Alumne)
    Pd.create(req.body)
        .then(user => user ? res.json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
