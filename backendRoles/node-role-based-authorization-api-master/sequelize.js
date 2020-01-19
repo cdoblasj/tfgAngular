@@ -8,7 +8,7 @@ const AnyModel = require('./models/anys')
 const PdModel = require('./models/pd')
 //const TagModel = require('./models/tag')
 
-const sequelize = new Sequelize('develop5', 'postgres', 'pekpek88', {
+const sequelize = new Sequelize('develop4', 'postgres', 'pekpek88', {
   host: 'localhost',
   dialect: 'postgres',
   pool: {
@@ -36,8 +36,8 @@ const AnyAcademic = sequelize.define('anysAcademics', {
 
 
 
-Assignatura.belongsToMany(Any, { through: AnyAcademic });
-Any.belongsToMany(Assignatura, { through: AnyAcademic });
+Assignatura.belongsToMany(Any, { through: AnyAcademic,unique:'a' });
+Any.belongsToMany(Assignatura, { through: AnyAcademic,unique:'a' });
 User.belongsTo(Professor);
 
 

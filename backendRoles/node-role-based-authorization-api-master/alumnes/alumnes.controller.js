@@ -55,21 +55,41 @@ function add(req, res, next) {
         return res.status(401).json({ message: 'Unauthorized' });
     }
     /*
-    req.body =  { nia: 1338429,nom: 'carlos', cognoms: 'doblas jodar' };
+    req.body =  { nia: 1338429,nom: 'carloswr', cognoms: 'doblas jodar' };
     console.log(Alumne)
     Alumne.create(req.body)
         .then(user => user ? res.json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
-        .catch(err => next(err));
-    */
+        .catch(err => next(err));*//*
+        req.body =  { nia: 155656,nom: 'professor', cognoms: 'doblas jodar' };
+        Professor.create(req.body)
+            .then(user => user ? res.json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
+            .catch(err => next(err));  *//*
+            req.body =  { codi: 2222, text: 'anglès' };
+            Assignatura.create(req.body)
+            .then(user => user ? res.json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
+            .catch(err => next(err)); *//*
+            req.body =  { assignatureId:1, anyId:2};
+        AnyAcademic.create(req.body)
+            .then(user => user ? res.json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
+            .catch(err => next(err)); */
 
-   req.body =  { idAssignatura: 3, idAny: 1, idProfessor: 2,rol: 'admin'};
+    /*
+   req.body =  { idAssignatura: 4, idAny: 1, idProfessor: 1,rol: 'admin'};
    console.log(Alumne)
    Pd.create(req.body)
        .then(user => user ? res.json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
-       .catch(err => next(err));
+       .catch(err => next(err));*/
     /*activitatService.add(req.body)
         .then(user => user ? res.json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
         .catch(err => next(err));*/
+
+        //buen find all
+        /*
+        Pd.findAll({ where: {idAny:1}}).then(user => user ? console.log(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
+        .catch(err => next(err));
+        */
+       
+        
 }
 
 
