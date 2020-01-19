@@ -9,6 +9,7 @@ import { first } from 'rxjs/operators';
 import { AlertService, AuthenticationService } from '../_services';
 import { AssignaturesService } from '../_services/assignatures.service';
 import { Assignatura } from '../_models/assignatura';
+import { AnysService } from '../_services/anys.service';
 
 @Component({
   selector: 'app-nova-assignatura',
@@ -20,6 +21,7 @@ export class NovaAssignaturaComponent implements OnInit {
     loading = false;
     submitted = false;
     returnUrl: string;
+    anys = [];
 
     constructor(
         private formBuilder: FormBuilder,
@@ -27,7 +29,8 @@ export class NovaAssignaturaComponent implements OnInit {
         private router: Router,
         private authenticationService: AuthenticationService,
         private assignaturesService: AssignaturesService,
-        private alertService: AlertService
+        private alertService: AlertService,
+        private anysService: AnysService
     ) {
        
     }
@@ -36,11 +39,19 @@ export class NovaAssignaturaComponent implements OnInit {
         this.assignaturaForm = this.formBuilder.group({
             codi: ['', Validators.required],
             nom: ['', Validators.required],
-            any:['', Validators.required]
+            any: ['', ]
         });
 
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+
+        this.anysService.getAll()
+            .subscribe(
+                data => {
+                    this.anys = data;
+                },
+                error => {
+                });
     }
 
     // convenience getter for easy access to form fields

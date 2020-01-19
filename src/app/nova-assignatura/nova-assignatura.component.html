@@ -8,23 +8,28 @@
 <label for="nom">Nom</label>
 <input type="text" formControlName="nom" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nom.errors }" />
 <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
-    <div *ngIf="f.nom.errors.required">Nom is required</div>
+    <div *ngIf="f.nom.errors.required">Falta el nom</div>
 </div>
 </div>
 <div class="form-group">
 <label for="codi">Codi</label>
 <input type="text" formControlName="codi" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.codi.errors }" />
 <div *ngIf="submitted && f.codi.errors" class="invalid-feedback">
-    <div *ngIf="f.codi.errors.required">Codi is required</div>
+    <div *ngIf="f.codi.errors.required">Falta el codi</div>
 </div>
 </div>
+
 <div class="form-group">
     <label for="any">Any</label>
-    <input type="number" placeholder="YYYY" min="0" formControlName="any" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.any.errors }" />
-    <div *ngIf="submitted && f.any.errors" class="invalid-feedback">
-        <div *ngIf="f.any.errors.required">Any is required</div>
-    </div>
+<select class="form-control" formControlName="any" required [ngClass]="{ 'is-invalid': submitted && f.any.errors }">
+    <option *ngFor="let any of anys" [value]="any.id">{{any.text}}</option>
+  </select>
+  <div *ngIf="submitted && f.any.errors" class="invalid-feedback" >
+    <div *ngIf="f.any.errors.required">Introdueix l'any</div>
 </div>
+</div>
+
+
 <div class="form-group">
     <div class="button-row">
         <button [disabled]="loading" class="btn btn-primary">

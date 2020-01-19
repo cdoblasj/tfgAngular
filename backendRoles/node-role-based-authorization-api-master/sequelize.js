@@ -6,6 +6,14 @@ const ProfessorModel = require('./models/professors')
 const AssignaturaModel = require('./models/assignatures')
 const AnyModel = require('./models/anys')
 const PdModel = require('./models/pd')
+const MatriculaModel = require('./models/matricules')
+const ProvaModel = require('./models/prova')
+const ApModel = require('./models/ap')
+const PreguntaModel = require('./models/pregunta')
+const CriteriModel = require('./models/criteri')
+const AcModel = require('./models/ac')
+const AprModel = require('./models/aprs')
+
 //const TagModel = require('./models/tag')
 
 const sequelize = new Sequelize('develop4', 'postgres', 'pekpek88', {
@@ -31,6 +39,13 @@ const Assignatura = AssignaturaModel(sequelize, Sequelize)
 const Any = AnyModel(sequelize, Sequelize)
 const User = UserModel(sequelize, Sequelize)
 const Pd = PdModel(sequelize, Sequelize)
+const Matricula = MatriculaModel(sequelize, Sequelize)
+const Prova = ProvaModel(sequelize, Sequelize)
+const Ap = ApModel(sequelize, Sequelize)
+const Pregunta = PreguntaModel(sequelize, Sequelize)
+const Criteri = CriteriModel(sequelize, Sequelize)
+const Ac = AcModel(sequelize, Sequelize)
+const Apr = AprModel(sequelize, Sequelize)//representa ap2
 const AnyAcademic = sequelize.define('anysAcademics', {
 });
 
@@ -55,5 +70,12 @@ module.exports = {
   Any,
   AnyAcademic,
   User,
-  Pd
+  Pd,
+  Matricula,
+  Prova,
+  Ap,
+  Pregunta,
+  Criteri,
+  Ac,
+  Apr
 }

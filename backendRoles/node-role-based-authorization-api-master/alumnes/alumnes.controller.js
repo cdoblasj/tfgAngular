@@ -54,6 +54,11 @@ function add(req, res, next) {
     if (id !== currentUser.sub && currentUser.role !== Role.Admin) {
         return res.status(401).json({ message: 'Unauthorized' });
     }
+
+    console.log(Alumne)
+    Alumne.create(req.body)
+        .then(user => user ? res.json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
+        .catch(err => next(err));
     /*
     req.body =  { nia: 1338429,nom: 'carloswr', cognoms: 'doblas jodar' };
     console.log(Alumne)

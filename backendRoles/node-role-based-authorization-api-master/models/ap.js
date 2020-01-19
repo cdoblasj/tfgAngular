@@ -1,12 +1,12 @@
 module.exports = (sequelize, type) => {
-    return sequelize.define('matricules', {
+    return sequelize.define('aps', {
         idAssignatura: {
             type: type.INTEGER,
-            primaryKey: true },idAny: {
+            primaryKey: true },idProva: {
                 type: type.INTEGER,
                 primaryKey: true },idAlumne: {
                     type: type.INTEGER,
                     primaryKey: true },
-                    notaFinal: type.INTEGER
+        nota: type.STRING
     })
 }

@@ -6,7 +6,8 @@ module.exports = (sequelize, type) => {
                 type: type.INTEGER,
                 primaryKey: true },idProfessor: {
                     type: type.INTEGER,
-                    primaryKey: true }
+                    primaryKey: true },
+        rol: type.STRING
     })
 }
 
