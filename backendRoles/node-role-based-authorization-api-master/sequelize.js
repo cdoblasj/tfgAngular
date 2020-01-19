@@ -8,7 +8,7 @@ const AnyModel = require('./models/anys')
 const PdModel = require('./models/pd')
 //const TagModel = require('./models/tag')
 
-const sequelize = new Sequelize('develop4', 'postgres', 'pekpek88', {
+const sequelize = new Sequelize('develop5', 'postgres', 'pekpek88', {
   host: 'localhost',
   dialect: 'postgres',
   pool: {
